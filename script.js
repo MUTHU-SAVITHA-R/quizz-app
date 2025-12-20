@@ -134,7 +134,10 @@ submit.addEventListener("click", () => {
     }
     const selected = getSelected();
     if (!selected) {
-        alert("Please select an option!");
+        card.classList.add("shake");
+        setTimeout(() => {
+            card.classList.remove("shake");
+        }, 400);
         return;
     }
     allquestions[index].answered = true;
