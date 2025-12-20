@@ -12,9 +12,7 @@
 
 .card{
   width: min(90%, 400px);   
-  height: 70vh;      
-  max-height: 700px; 
-  min-height: 400px;           
+  height: 70vh;           
   border-radius: 15px;
   background-color: #5B2C6F;  
   transition: background-color 0.3s, transform 0.2s;
@@ -28,6 +26,11 @@
 
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+@media (max-width: 600px) {
+  .card {
+    height:500px; 
+  }
 }
 #question{
     
