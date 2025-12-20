@@ -30,6 +30,42 @@ const allquestions = [
         answer: "main()",
         answered: false,
     },
+    {
+        question: "Which of these is not a Java feature?",
+        options: ["Object-oriented", "Platform independent", "Use of pointers", "Secure"],
+        answer: "Use of pointers",
+        answered: false,
+    },
+    {
+        question: "Which data type is used to store true or false values?",
+        options: ["int", "boolean", "char", "String"],
+        answer: "boolean",
+        answered: false,
+    },
+    {
+        question: "Which keyword is used to inherit a class in Java?",
+        options: ["implements", "inherits", "extends", "super"],
+        answer: "extends",
+        answered: false,
+    },
+    {
+        question: "Which access modifier makes a member visible only within the same class?",
+        options: ["public", "protected", "default", "private"],
+        answer: "private",
+        answered: false,
+    },
+    {
+        question: "Which loop is guaranteed to execute at least once?",
+        options: ["for", "while", "do-while", "foreach"],
+        answer: "do-while",
+        answered: false,
+    },
+    {
+        question: "Which exception is thrown when dividing by zero?",
+        options: ["NullPointerException", "ArithmeticException", "IOException", "ArrayIndexOutOfBoundsException"],
+        answer: "ArithmeticException",
+        answered: false,
+    },
 ];
 let index = 0;
 loadfunction();
@@ -68,28 +104,28 @@ function getSelected() {
     return document.querySelector('input[name="answer"]:checked');
 }
 submit.addEventListener("click", () => {
-    if(submit.textContent==="View Result"){
+    if (submit.textContent === "View Result") {
         change1.style.display = "none";
-        card.innerHTML="";
+        card.innerHTML = "";
         card.classList.add("result-view");
-        const wrapper=document.createElement("div")
+        const wrapper = document.createElement("div")
         wrapper.classList.add("result-wrapper");
-        const div=document.createElement("div");
-        div.textContent=`${count}/${allquestions.length}`;
+        const div = document.createElement("div");
+        div.textContent = `${count}/${allquestions.length}`;
         div.classList.add("score");
-        const div2=document.createElement("div");
+        const div2 = document.createElement("div");
         div2.classList.add("message");
-        if(count<5){
-            div2.textContent="Keep practicing to sharpen your skills! 💡✨";
-        }else if(count<8){
-            div2.textContent="Good attempt! Keep improving! 👍🌱";
-        }else{
-            div2.textContent="Great job! Excellent performance! 🌟👏";
+        if (count < 5) {
+            div2.textContent = "Keep practicing to sharpen your skills! 💡✨";
+        } else if (count < 8) {
+            div2.textContent = "Good attempt! Keep improving! 👍🌱";
+        } else {
+            div2.textContent = "Great job! Excellent performance! 🌟👏";
         }
         wrapper.appendChild(div);
         wrapper.appendChild(div2);
         card.append(wrapper);
-        
+
         return;
 
     }
@@ -104,6 +140,7 @@ submit.addEventListener("click", () => {
     allquestions[index].answered = true;
     options.innerHTML = "";
     const div = document.createElement("div");
+    const h2=document.createElement("h2");
     div.classList.add("result");
     if (allquestions[index].answer == selected.value) {
         div.textContent = "Correct Answer ✅";
@@ -116,6 +153,7 @@ submit.addEventListener("click", () => {
         }
     }
     else {
+        h2.textContent=`Ans: ${allquestions[index].answer}`;
         div.textContent = "Wrong Answer ❌";
         div.classList.add("wrong");
         if (index == allquestions.length - 1) {
@@ -125,7 +163,8 @@ submit.addEventListener("click", () => {
         }
 
     }
-    options.append(div);
+    options.appendChild(div);
+    options.appendChild(h2);
 
 
 });
