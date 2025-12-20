@@ -9,7 +9,7 @@
 
 .card{
    width: min(90%, 400px);   
-  height: 70vh;            
+  height: min(90%,70vh);            
   border-radius: 15px;
   background-color: #5B2C6F;  
   transition: background-color 0.3s, transform 0.2s;
