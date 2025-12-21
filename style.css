@@ -11,10 +11,10 @@
 }
 
 .card{
-  width: min(90%, 400px);   
-  height: 70dvh;       
-  max-height: 700px;   
-  min-height: 500px;           
+  width:min(90%,400px);  
+  height: 70dvh;    
+  max-height:600px;
+  min-height:400px;       
   border-radius: 15px;
   background-color: #5B2C6F;  
   transition: background-color 0.3s, transform 0.2s;
@@ -30,9 +30,11 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 @media (max-width: 600px) {
-  .card {
-    height:auto;
-  }
+ .body{
+     display: flex;
+     flex-direction:column;
+ }
+
 }
 #question{
     
@@ -57,14 +59,16 @@
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
-    width: 85%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 10px 12px;
      background-color:#B39DDB ;
     border-radius: 6px;
     cursor: pointer;
     font-size: 18px;
     color: #2B2B2B;
-    font-weight: 500;   
+    font-weight: 500;  
+   
 }
 .option-container:hover {
   background-color: #A085D6;
