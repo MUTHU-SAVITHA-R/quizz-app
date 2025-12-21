@@ -6,41 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <script defer src="script.js"></script>
     <title>Quizz App</title>
 </head>
 
-<body >
+<body style="background-color: #DDB0C9;">
+    <div class="nav-questions">
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
 
-    
- 
-    <div class="body">
-    <button class="change1" onclick="left()">&lt;</button>
-    <div class="card">
-        <h1 id="question"></h1>
-        <div id="options">
-            <label class="option-container">
-                <input type="radio" name="q1">
-                <span class="option">Option 1</span>
-            </label>
-            <label class="option-container">
-                <input type="radio" name="q1">
-                <span class="option">Option 2</span>
-            </label>
-            <label class="option-container">
-                <input type="radio" name="q1">
-                <span class="option">Option 3</span>
-            </label>
-            <label class="option-container">
-                <input type="radio" name="q1">
-                <span class="option">Option 4</span>
-            </label>
-            
-        </div>
-        <button id="submit">Submit</button>
-        
     </div>
-    <button class="change2" onclick="right()">&gt;</button>
+
+    <div class="body">
+        <button class="change1" onclick="left()">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <div class="card">
+            <h1 id="question"></h1>
+            <div id="options">
+                <label class="option-container">
+                    <input type="radio" name="q1">
+                    <span class="option">Option 1</span>
+                </label>
+                <label class="option-container">
+                    <input type="radio" name="q1">
+                    <span class="option">Option 2</span>
+                </label>
+                <label class="option-container">
+                    <input type="radio" name="q1">
+                    <span class="option">Option 3</span>
+                </label>
+                <label class="option-container">
+                    <input type="radio" name="q1">
+                    <span class="option">Option 4</span>
+                </label>
+
+            </div>
+            <button id="submit">Submit</button>
+
+        </div>
+        <button class="change2" onclick="right()">
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
     </div>
 
 </body>

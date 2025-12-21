@@ -97,6 +97,10 @@ function loadfunction() {
         change1.style.display = "block";
     }
     submit.style.display = "block";
+    const navquestions=document.querySelectorAll(".nav-questions .qn-number");
+    navquestions.forEach(qn => qn.classList.remove("update"));
+    navquestions[index].classList.add("update");
+    
 };
 
 
