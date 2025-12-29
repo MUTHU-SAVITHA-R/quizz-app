@@ -45,30 +45,11 @@
     font-weight: 500;
     cursor: pointer;
 }
-.connection-line {
-    margin-top: 35px;
-    width: 3px;
-    height: 90px;
-    background: #5B2C6F;
-    position: relative;
-}
-
-.connection-line .dot {
-    position: absolute;
-    bottom: -7px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 14px;
-    height: 14px;
-    background: #ddb0c9;
-    border-radius: 50%;
-}
 .quiz-section {
     padding: 80px 20px;
     text-align: center;
     background: #fdf3f8;
-}
-
+}`
 .quiz-section h2 {
     font-size: 32px;
     color: #5B2C6F;
@@ -84,11 +65,12 @@
 
 .quiz-card {
     width: 300px;
-    background: linear-gradient(135deg, #f5eef8, #ffffff);
+    background-color: #5B2C6F;  
     padding: 35px 25px;
     border-radius: 20px;
     box-shadow: 0 12px 30px rgba(106, 44, 91, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+   
 }
 
 .quiz-card:hover {
@@ -97,17 +79,17 @@
 }
 .card-icon {
     font-size: 48px;
-    color: #5B2C6F;
+     color: white;
     margin-bottom: 15px;
 }
 .quiz-card h3 {
     font-size: 24px;
-    color: #5B2C6F;
+     color: white;
     margin-bottom: 10px;
 }
 .quiz-card p {
     font-size: 14px;
-    color: #5B2C6F;
+     color: white;
     margin-bottom: 25px;
 }
 .quiz-card button {
