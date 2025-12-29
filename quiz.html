@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaviQuiz – Quiz</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🧠%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <script defer src="script.js"></script>
+</head>
+
+<body style="background: linear-gradient(135deg, #ddb0c9, #f5eef8)">
+
+    <div class="nav-questions">
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+        <div class="qn-number"></div>
+    </div>
+
+    <div class="body">
+        <button class="change1" onclick="left()">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+
+        <div class="card">
+            <p id="progress"></p>
+            <h1 id="question"></h1>
+
+            <div id="options"></div>
+
+            <button id="submit">Submit</button>
+        </div>
+
+        <button class="change2" onclick="right()">
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+
+</body>
+</html>
