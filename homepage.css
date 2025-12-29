@@ -48,15 +48,19 @@
 .quiz-section {
     padding: 80px 20px;
     text-align: center;
-    background: #fdf3f8;
+    color: #5B2C6F;
+    background: linear-gradient(135deg, #c58ab0, #e2cce9);
+
 }`
 .quiz-section h2 {
+    
     font-size: 32px;
     color: #5B2C6F;
     margin-bottom: 50px;
 }
 
 .quiz-cards {
+    padding:50px;
     display: flex;
     justify-content: center;
     gap: 40px;
