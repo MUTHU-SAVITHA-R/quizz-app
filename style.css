@@ -209,3 +209,41 @@
 .update{
   background-color: #5B2C6F;
 }
+.correct-option {
+  background-color: #7DCEA0 !important;
+  color: #145A32;
+}
+
+.wrong-option {
+  background-color: #F1948A !important;
+  color: #641E16;
+}
+
+#progress {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+#restart {
+  padding: 14px 36px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #5B2C6F, #8E44AD);
+  color: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+}
+
+#restart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+  opacity: 0.95;
+}
+
+#restart:active {
+  transform: scale(0.95);
+}

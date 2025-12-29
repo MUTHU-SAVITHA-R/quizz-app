@@ -4,194 +4,169 @@ const submit = document.getElementById("submit");
 const card = document.querySelector(".card");
 const change1 = document.querySelector(".change1");
 const change2 = document.querySelector(".change2");
-let count = 0;
-const allquestions = [
-    {
-        question: "What is Java?",
-        options: ["Programming Language", "Database", "Browser", "OS"],
-        answer: "Programming Language",
-        answered: false,
-    },
-    {
-        question: "Which is not OOP concept?",
-        options: ["Encapsulation", "Inheritance", "Compilation", "Polymorphism"],
-        answer: "Compilation",
-        answered: false,
-    },
-    {
-        question: "Which keyword is used to create an object in Java?",
-        options: ["new", "class", "void", "this"],
-        answer: "new",
-        answered: false,
-    },
-    {
-        question: "Which method is the entry point of a Java program?",
-        options: ["main()", "start()", "init()", "run()"],
-        answer: "main()",
-        answered: false,
-    },
-    {
-        question: "Which of these is not a Java feature?",
-        options: ["Object-oriented", "Platform independent", "Use of pointers", "Secure"],
-        answer: "Use of pointers",
-        answered: false,
-    },
-    {
-        question: "Which data type is used to store true or false values?",
-        options: ["int", "boolean", "char", "String"],
-        answer: "boolean",
-        answered: false,
-    },
-    {
-        question: "Which keyword is used to inherit a class in Java?",
-        options: ["implements", "inherits", "extends", "super"],
-        answer: "extends",
-        answered: false,
-    },
-    {
-        question: "Which access modifier makes a member visible only within the same class?",
-        options: ["public", "protected", "default", "private"],
-        answer: "private",
-        answered: false,
-    },
-    {
-        question: "Which loop is guaranteed to execute at least once?",
-        options: ["for", "while", "do-while", "foreach"],
-        answer: "do-while",
-        answered: false,
-    },
-    {
-        question: "Which exception is thrown when dividing by zero?",
-        options: ["NullPointerException", "ArithmeticException", "IOException", "ArrayIndexOutOfBoundsException"],
-        answer: "ArithmeticException",
-        answered: false,
-    },
-];
+const progress = document.getElementById("progress");
+
+const subject = localStorage.getItem("subject");
+
 let index = 0;
-loadfunction();
-function loadfunction() {
+let score = 0;
+let startTime = Date.now();
+let allquestions;
+if (subject === "java") {
+    allquestions = [
+        { question: "What is Java?", options: ["Programming Language", "Database", "Browser", "OS"], answer: "Programming Language", selected: null },
+        { question: "Which is not OOP concept?", options: ["Encapsulation", "Inheritance", "Compilation", "Polymorphism"], answer: "Compilation", selected: null },
+        { question: "Which keyword creates object?", options: ["new", "class", "void", "this"], answer: "new", selected: null },
+        { question: "Entry point of Java program?", options: ["main()", "start()", "run()", "init()"], answer: "main()", selected: null },
+        { question: "Not a Java feature?", options: ["OOP", "Platform independent", "Pointers", "Secure"], answer: "Pointers", selected: null },
+        { question: "Boolean stores?", options: ["int", "boolean", "char", "String"], answer: "boolean", selected: null },
+        { question: "Inheritance keyword?", options: ["extends", "super", "this", "implements"], answer: "extends", selected: null },
+        { question: "Private access visible where?", options: ["Class", "Package", "World", "Subclass"], answer: "Class", selected: null },
+        { question: "Loop runs at least once?", options: ["for", "while", "do-while", "foreach"], answer: "do-while", selected: null },
+        { question: "Divide by zero exception?", options: ["IOException", "ArithmeticException", "NullPointerException", "IndexException"], answer: "ArithmeticException", selected: null }
+    ];
+}
+else if (subject === "c") {
+    allquestions = [
+    { question: "What is C?", options: ["Programming Language", "Database", "Browser", "OS"], answer: "Programming Language", selected: null },
+    { question: "File extension of C?", options: [".c", ".cpp", ".java", ".py"], answer: ".c", selected: null },
+    { question: "Entry point of C program?", options: ["main()", "start()", "run()", "init()"], answer: "main()", selected: null },
+    { question: "Which is not a data type in C?", options: ["int", "float", "boolean", "char"], answer: "boolean", selected: null },
+    { question: "Used to print output?", options: ["scanf", "printf", "print", "cout"], answer: "printf", selected: null },
+    { question: "Which symbol ends a statement?", options: [";", ":", ".", ","], answer: ";", selected: null },
+    { question: "Which loop runs at least once?", options: ["for", "while", "do-while", "foreach"], answer: "do-while", selected: null },
+    { question: "Address operator in C?", options: ["&", "*", "#", "@"], answer: "&", selected: null },
+    { question: "Which header file is needed for printf?", options: ["stdio.h", "conio.h", "math.h", "string.h"], answer: "stdio.h", selected: null },
+    { question: "Used to read input from user?", options: ["scanf", "printf", "input", "cin"], answer: "scanf", selected: null }
+   ];
+}
+else if (subject === "python") {
+    allquestions = [
+        { question: "What is Python?", options: ["Programming Language", "Database", "Browser", "OS"], answer: "Programming Language", selected: null },
+        { question: "Who developed Python?", options: ["Guido van Rossum", "James Gosling", "Dennis Ritchie", "Bjarne Stroustrup"], answer: "Guido van Rossum", selected: null },
+        { question: "File extension of Python?", options: [".py", ".java", ".c", ".cpp"], answer: ".py", selected: null },
+        { question: "Used to display output?", options: ["print()", "printf()", "cout", "echo"], answer: "print()", selected: null },
+        { question: "Python is?", options: ["Compiled", "Interpreted", "Assembly", "Machine"], answer: "Interpreted", selected: null },
+        { question: "Which is a Python data type?", options: ["list", "array", "pointer", "struct"], answer: "list", selected: null },
+        { question: "Symbol for comments?", options: ["#", "//", "/*", "--"], answer: "#", selected: null },
+        { question: "Loop used to iterate list?", options: ["for", "while", "do-while", "switch"], answer: "for", selected: null },
+        { question: "Correct boolean value?", options: ["True", "true", "1", "yes"], answer: "True", selected: null },
+        { question: "Used to define function?", options: ["def", "function", "fun", "define"], answer: "def", selected: null }
+    ];
+}
+
+function loadQuestion() {
     question.textContent = allquestions[index].question;
+    progress.textContent = `Question ${index + 1} of ${allquestions.length}`;
     options.innerHTML = "";
-    allquestions[index].options.forEach((opt, ind) => {
+
+    allquestions[index].options.forEach(opt => {
         const label = document.createElement("label");
         label.className = "option-container";
+
         const input = document.createElement("input");
         input.type = "radio";
         input.name = "answer";
         input.value = opt;
-        input.disabled = allquestions[index].answered;
-        const span = document.createElement("span");
-        span.className = "option";
-        span.textContent = opt;
+
+        if (allquestions[index].selected === opt) {
+            input.checked = true;
+        }
+
         label.appendChild(input);
-        label.appendChild(span);
+        label.appendChild(document.createTextNode(opt));
         options.appendChild(label);
     });
-    if (index === allquestions.length - 1) {
-        change2.style.display = "none";
-    } else if (index == 0) {
+    if (index === 0) {
         change1.style.display = "none";
-    }
-    else {
         change2.style.display = "block";
+    }
+    else if (index === allquestions.length - 1) {
+        change2.style.display = "none";
         change1.style.display = "block";
     }
-    submit.style.display = "block";
-    const navquestions=document.querySelectorAll(".nav-questions .qn-number");
-    navquestions.forEach(qn => qn.classList.remove("update"));
-    navquestions[index].classList.add("update");
-    
+    else {
+        change1.style.display = "block";
+        change2.style.display = "block";
+    }
+
+    updateNav();
+}
+
+loadQuestion();
+submit.onclick = () => {
+    const selected = document.querySelector('input[name="answer"]:checked');
+    if (!selected) {
+        card.classList.add("shake");
+        setTimeout(() => card.classList.remove("shake"), 400);
+        return;
+    }
+
+    allquestions[index].selected = selected.value;
+
+    options.childNodes.forEach(label => {
+        const text = label.textContent;
+        if (text === allquestions[index].answer) {
+            label.classList.add("correct-option");
+        } else if (text === selected.value) {
+            label.classList.add("wrong-option");
+        }
+    });
+
+    if (selected.value === allquestions[index].answer) score++;
+
+    if (index === allquestions.length - 1) {
+        submit.textContent = "View Result";
+        submit.onclick = showResult;
+    }
 };
 
 
-function getSelected() {
-    return document.querySelector('input[name="answer"]:checked');
+function showResult() {
+    const timeTaken = Math.floor((Date.now() - startTime) / 1000);
+
+    card.innerHTML = `
+        <div class="result-wrapper">
+            <div class="score">${score} / ${allquestions.length}</div>
+            <div class="message">
+                Time Taken: ${timeTaken}s <br><br>
+                ${score < 5 ? "Keep practicing 💪" : score < 8 ? "Good attempt 👍" : "Excellent 🌟"}
+            </div>
+            <button id="restart">Restart Quiz</button>
+        </div>
+    `;
+    document.getElementById("restart").onclick = restartQuiz;
 }
-submit.addEventListener("click", () => {
-    if (submit.textContent === "View Result") {
-        change1.style.display = "none";
-        card.innerHTML = "";
-        card.classList.add("result-view");
-        const wrapper = document.createElement("div")
-        wrapper.classList.add("result-wrapper");
-        const div = document.createElement("div");
-        div.textContent = `${count}/${allquestions.length}`;
-        div.classList.add("score");
-        const div2 = document.createElement("div");
-        div2.classList.add("message");
-        if (count < 5) {
-            div2.textContent = "Keep practicing to sharpen your skills! 💡✨";
-        } else if (count < 8) {
-            div2.textContent = "Good attempt! Keep improving! 👍🌱";
-        } else {
-            div2.textContent = "Great job! Excellent performance! 🌟👏";
-        }
-        wrapper.appendChild(div);
-        wrapper.appendChild(div2);
-        card.append(wrapper);
 
-        return;
-
-    }
-    if (allquestions[index].answered) {
-        return;
-    }
-    const selected = getSelected();
-    if (!selected) {
-        card.classList.add("shake");
-        setTimeout(() => {
-            card.classList.remove("shake");
-        }, 400);
-        return;
-    }
-    allquestions[index].answered = true;
-    options.innerHTML = "";
-    const div = document.createElement("div");
-    const h2=document.createElement("h2");
-    div.classList.add("result");
-    if (allquestions[index].answer == selected.value) {
-        div.textContent = "Correct Answer ✅";
-        div.classList.add("correct");
-        count++;
-        if (index == allquestions.length - 1) {
-            submit.textContent = "View Result";
-        } else {
-            submit.style.display = "none";
-        }
-    }
-    else {
-        h2.textContent=`Ans: ${allquestions[index].answer}`;
-        div.textContent = "Wrong Answer ❌";
-        div.classList.add("wrong");
-        if (index == allquestions.length - 1) {
-            submit.textContent = "View Result";
-        } else {
-            submit.style.display = "none";
-        }
-
-    }
-    options.appendChild(div);
-    options.appendChild(h2);
-
-
-});
 function left() {
     if (index > 0) {
         index--;
-        loadfunction();
+        loadQuestion();
     }
 }
 function right() {
-    if (!allquestions[index].answered) {
+    if (allquestions[index].selected === null) {
         card.classList.add("shake");
-        setTimeout(() => {
-            card.classList.remove("shake");
-        }, 400);
+        setTimeout(() => card.classList.remove("shake"), 400);
         return;
     }
     if (index < allquestions.length - 1) {
         index++;
-        loadfunction();
+        loadQuestion();
     }
 }
+function updateNav() {
+    document.querySelectorAll(".qn-number").forEach((el, i) => {
+        el.classList.toggle("update", i === index);
+    });
+}
 
+function restartQuiz() {
+    index = 0;
+    score = 0;
+    startTime = Date.now();
+    allquestions.forEach(q => q.selected = null);
+    submit.textContent = "Submit";
+    submit.onclick = null;
+    location.reload();
+}

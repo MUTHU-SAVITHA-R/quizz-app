@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaviQuiz</title>
+   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🧠%3C/text%3E%3C/svg%3E">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-symbols-outlined">code</span>
+            SaviQuiz
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>Unlock Your Coding Potential</h1>
+        <p>Learn • Practice • Succeed</p>
+        <button class="get-started" onclick="scrollToQuiz()">Get Started</button>
+        <div class="connection-line">
+            <span class="dot"></span>
+        </div>
+    </section>
+<section id="quiz-section" class="quiz-section">
+    <h2>Choose Your Path</h2>
+    <div class="quiz-cards">
+        <div class="quiz-card">
+            <span class="material-symbols-outlined card-icon">coffee</span>
+            <h3>Java</h3>
+            <p>Master OOP concepts and crack placement interviews.</p>
+            <button onclick="goToQuiz('java')">Start Java</button>
+        </div>
+        <div class="quiz-card">
+            <span class="material-symbols-outlined card-icon">terminal</span>
+            <h3>C Programming</h3>
+            <p>Build strong programming fundamentals from scratch.</p>
+            <button onclick="goToQuiz('c')">Start C</button>
+        </div>
+         <div class="quiz-card">
+            <span class="material-symbols-outlined card-icon">memory</span>
+            <h3>Python Programming</h3>
+            <p>Learn Python basics and strengthen your coding skills.</p>
+            <button onclick="goToQuiz('python')">Start Python</button>
+        </div>
+    </div>
+</section>
+    <script>
+        function scrollToQuiz() {
+            document.getElementById("quiz-section")
+                .scrollIntoView({ behavior: "smooth" });
+        }
+        function goToQuiz(subject) {
+            localStorage.setItem("subject", subject);
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>

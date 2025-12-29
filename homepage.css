@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar {
+    padding: 18px 60px;
+    background: #5B2C6F; 
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #ddb0c9, #f5eef8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #5B2C6F;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 18px;
+    color: #5B2C6F;
+    margin-bottom: 25px;
+}
+.get-started {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 30px;
+    background: #5B2C6F;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+.connection-line {
+    margin-top: 35px;
+    width: 3px;
+    height: 90px;
+    background: #5B2C6F;
+    position: relative;
+}
+
+.connection-line .dot {
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: #ddb0c9;
+    border-radius: 50%;
+}
+.quiz-section {
+    padding: 80px 20px;
+    text-align: center;
+    background: #fdf3f8;
+}
+
+.quiz-section h2 {
+    font-size: 32px;
+    color: #5B2C6F;
+    margin-bottom: 50px;
+}
+
+.quiz-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.quiz-card {
+    width: 300px;
+    background: linear-gradient(135deg, #f5eef8, #ffffff);
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(106, 44, 91, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-8px);
+    
+}
+.card-icon {
+    font-size: 48px;
+    color: #5B2C6F;
+    margin-bottom: 15px;
+}
+.quiz-card h3 {
+    font-size: 24px;
+    color: #5B2C6F;
+    margin-bottom: 10px;
+}
+.quiz-card p {
+    font-size: 14px;
+    color: #5B2C6F;
+    margin-bottom: 25px;
+}
+.quiz-card button {
+    padding: 10px 26px;
+    border: none;
+    border-radius: 25px;
+    background: #ddb0c9;
+    color: #5B2C6F;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.quiz-card button:hover {
+    background: #c996b4;
+}
