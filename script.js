@@ -28,17 +28,17 @@ if (subject === "java") {
 }
 else if (subject === "c") {
     allquestions = [
-    { question: "What is C?", options: ["Programming Language", "Database", "Browser", "OS"], answer: "Programming Language", selected: null },
-    { question: "File extension of C?", options: [".c", ".cpp", ".java", ".py"], answer: ".c", selected: null },
-    { question: "Entry point of C program?", options: ["main()", "start()", "run()", "init()"], answer: "main()", selected: null },
-    { question: "Which is not a data type in C?", options: ["int", "float", "boolean", "char"], answer: "boolean", selected: null },
-    { question: "Used to print output?", options: ["scanf", "printf", "print", "cout"], answer: "printf", selected: null },
-    { question: "Which symbol ends a statement?", options: [";", ":", ".", ","], answer: ";", selected: null },
-    { question: "Which loop runs at least once?", options: ["for", "while", "do-while", "foreach"], answer: "do-while", selected: null },
-    { question: "Address operator in C?", options: ["&", "*", "#", "@"], answer: "&", selected: null },
-    { question: "Which header file is needed for printf?", options: ["stdio.h", "conio.h", "math.h", "string.h"], answer: "stdio.h", selected: null },
-    { question: "Used to read input from user?", options: ["scanf", "printf", "input", "cin"], answer: "scanf", selected: null }
-   ];
+        { question: "What is C?", options: ["Programming Language", "Database", "Browser", "OS"], answer: "Programming Language", selected: null },
+        { question: "File extension of C?", options: [".c", ".cpp", ".java", ".py"], answer: ".c", selected: null },
+        { question: "Entry point of C program?", options: ["main()", "start()", "run()", "init()"], answer: "main()", selected: null },
+        { question: "Which is not a data type in C?", options: ["int", "float", "boolean", "char"], answer: "boolean", selected: null },
+        { question: "Used to print output?", options: ["scanf", "printf", "print", "cout"], answer: "printf", selected: null },
+        { question: "Which symbol ends a statement?", options: [";", ":", ".", ","], answer: ";", selected: null },
+        { question: "Which loop runs at least once?", options: ["for", "while", "do-while", "foreach"], answer: "do-while", selected: null },
+        { question: "Address operator in C?", options: ["&", "*", "#", "@"], answer: "&", selected: null },
+        { question: "Which header file is needed for printf?", options: ["stdio.h", "conio.h", "math.h", "string.h"], answer: "stdio.h", selected: null },
+        { question: "Used to read input from user?", options: ["scanf", "printf", "input", "cin"], answer: "scanf", selected: null }
+    ];
 }
 else if (subject === "python") {
     allquestions = [
@@ -72,9 +72,29 @@ function loadQuestion() {
         if (allquestions[index].selected === opt) {
             input.checked = true;
         }
+        if (allquestions[index].selected !== null) {
+            input.disabled = true;
+        }
 
         label.appendChild(input);
         label.appendChild(document.createTextNode(opt));
+        if (allquestions[index].selected !== null) {
+
+            if (opt === allquestions[index].answer) {
+                label.classList.add("correct-option");
+            }
+            if (opt === allquestions[index].selected &&
+                allquestions[index].selected !== allquestions[index].answer) {
+                label.classList.add("wrong-option");
+            }
+
+        }
+        if (allquestions[index].selected !== null) {
+            submit.style.display = "none";
+        } else {
+            submit.style.display = "block";
+        }
+
         options.appendChild(label);
     });
     if (index === 0) {
@@ -112,7 +132,10 @@ submit.onclick = () => {
             label.classList.add("wrong-option");
         }
     });
-
+    options.querySelectorAll("input").forEach(input => {
+        input.disabled = true;
+    })
+    submit.style.display = "none";
     if (selected.value === allquestions[index].answer) score++;
 
     if (index === allquestions.length - 1) {
