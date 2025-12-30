@@ -89,7 +89,7 @@ function loadQuestion() {
             }
 
         }
-        if (allquestions[index].selected !== null) {
+        if (allquestions[index].selected !== null && index !== allquestions.length - 1) {
             submit.style.display = "none";
         } else {
             submit.style.display = "block";
@@ -135,19 +135,21 @@ submit.onclick = () => {
     options.querySelectorAll("input").forEach(input => {
         input.disabled = true;
     })
-    submit.style.display = "none";
     if (selected.value === allquestions[index].answer) score++;
-
     if (index === allquestions.length - 1) {
         submit.textContent = "View Result";
         submit.onclick = showResult;
+        return;
     }
+    submit.style.display = "none";
 };
 
 
 function showResult() {
     const timeTaken = Math.floor((Date.now() - startTime) / 1000);
-
+    change1.style.display = "none";
+    change2.style.display = "none";
+    document.getElementsByClassName("nav-questions")[0].style.display = "none";
     card.innerHTML = `
         <div class="result-wrapper">
             <div class="score">${score} / ${allquestions.length}</div>
@@ -185,6 +187,7 @@ function updateNav() {
 }
 
 function restartQuiz() {
+    document.getElementsByClassName("nav-questions")[0].style.display = "block";
     index = 0;
     score = 0;
     startTime = Date.now();
