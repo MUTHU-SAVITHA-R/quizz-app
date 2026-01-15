@@ -1,9 +1,10 @@
 **Company: Codetech IT Solutions**
 
-Name: MUTHU SAVITHA R
-Intern ID: CTIS0334
-Domain: Frontend
-Duration: 4 Weeks
+Company: Codetech IT Solutions  
+Intern: Muthu Savitha R  
+Intern ID: CTIS0334  
+Domain: Frontend Development  
+Duration: 4 Weeks  
 Mentor: Neela Santhosh
 
 **Quiz Application**
