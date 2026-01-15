@@ -1,4 +1,5 @@
 **Company: Codetech IT Solutions**
+
 Name: MUTHU SAVITHA R
 Intern ID: CTIS0334
 Domain: Frontend
@@ -6,8 +7,8 @@ Duration: 4 Weeks
 Mentor: Neela Santhosh
 
 **Quiz Application**
-This is a web-based Quiz Application developed as part of my Frontend Development Internship.
-The application allows users to attempt quizzes, view their scores, and improve their knowledge through an interactive and user-friendly interface.
+
+This is a web-based Quiz Application developed as part of my Frontend Development Internship. The application allows users to attempt quizzes, view their scores, and improve their knowledge through an interactive and user-friendly interface.
 
 🚀 **Features**
 Interactive quiz interface
